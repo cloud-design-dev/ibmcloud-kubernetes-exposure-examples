@@ -79,6 +79,6 @@ curl --header 'X-ECHO-ENV-BODY: HOSTNAME' https://echo.jb-iks-lab-classic-xxxxxx
 "echoserver-84c789fbd8-4wvnp"
 ```
 
-[nlbv2 annotations]: https://cloud.ibm.com/docs/containers?topic=containers-loadbalancer-v2#scheduling_supported
+[nlbv2-annotations]: https://cloud.ibm.com/docs/containers?topic=containers-loadbalancer-v2#scheduling_supported
 [non-default-app]: https://cloud.ibm.com/docs/containers?topic=containers-ingress-types#alb-com-create-ibm-domain
 
