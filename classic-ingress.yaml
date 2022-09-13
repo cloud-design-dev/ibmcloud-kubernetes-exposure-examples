@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: echoserver-ingress-service
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  type: ClusterIP
+  selector:
+    app: echoserver
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: classic-ingress
+  annotations:
+    kubernetes.io/ingress.class: "public-iks-k8s-nginx"
+spec:
+  tls:
+  - hosts:
+    - echo.jb-iks-lab-classic-007632d2d5235aabd90e420d6faed9fd-0000.us-south.containers.appdomain.cloud
+    secretName: jb-iks-lab-classic-007632d2d5235aabd90e420d6faed9fd-0000
+  rules:
+  - host: echo.jb-iks-lab-classic-007632d2d5235aabd90e420d6faed9fd-0000.us-south.containers.appdomain.cloud
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: echoserver-ingress-service
+            port:
+              number: 80
