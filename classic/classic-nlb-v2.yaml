@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: echoserver-nlb2-service
+  name: echoserver-classic-nlb-v2-service
   annotations:
     service.kubernetes.io/ibm-load-balancer-cloud-provider-ip-type: "public"
     service.kubernetes.io/ibm-load-balancer-cloud-provider-zone: "dal10"
@@ -15,4 +15,4 @@ spec:
   type: LoadBalancer
   externalTrafficPolicy: Local
   selector:
-    app: echoserver
+    app: echoserver-classic-app
