@@ -1,5 +1,13 @@
 # IKS App exposure examples
 
+The following examples deploy an [echo-server][echo-server] to an IBM Kubernetes Cluster as well as various app exposure resources:
+
+- [x] Classic NLB Version 1 Load Balancer
+- [x] Classic NLB Version 2 Load Balancer
+- [x] Classic Ingress ALB using TLS
+- [ ] VPC NLB Load Balancer
+- [ ] VPC ALB Load Balancer 
+
 ## Expose Classic IKS Application
 
 Deploy a simple echo server application to the cluster:
@@ -39,7 +47,7 @@ curl --header 'X-ECHO-ENV-BODY: HOSTNAME' http://192.168.75.29
 
 ### Expose the application via NLB version 2 (DSR)
 
-*Note*: Update the LoadBalancer annotations to match the zone where you would like the NLB to be deployed. Additionally you can specify the [Scheduling algorithms][nlbv2-annotations] that are used. Scheduling algorithms determine how an NLB 2.0 assigns network connections to your app pods. 
+**Note**: Update the LoadBalancer annotations to match the zone where you would like the NLB to be deployed. Additionally you can specify the [Scheduling algorithms][nlbv2-annotations] that are used. Scheduling algorithms determine how an NLB 2.0 assigns network connections to your app pods. 
 
 ```shell
 kubectl apply -f classic/classic-nlb-v1.yaml
