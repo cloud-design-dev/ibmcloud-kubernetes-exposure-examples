@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: echoserver-vpc-deployment
+  name: echoserver-deployment
 spec:
   replicas: 5
   selector:
     matchLabels:
-      app: echoserver-vpc-app
+      app: echoserver-app
   template:
     metadata:
       labels:
-        app: echoserver-vpc-app
+        app: echoserver-app
     spec:
       containers:
       - image: ealen/echo-server:latest

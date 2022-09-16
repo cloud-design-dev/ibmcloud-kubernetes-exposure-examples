@@ -15,4 +15,4 @@ spec:
   type: LoadBalancer
   externalTrafficPolicy: Local
   selector:
-    app: echoserver-classic-app
+    app: echoserver-app

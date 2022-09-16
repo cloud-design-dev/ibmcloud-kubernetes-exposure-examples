@@ -1,12 +1,14 @@
 # IKS App exposure examples
 
-The following examples deploy an [echo-server][echo-server] to an IBM Kubernetes Cluster as well as various app exposure resources:
+The following examples deploy an [echo-server][echo-server] to an IBM Kubernetes Cluster and demonstrate how to expose the service to the internet or your IBM Cloud Private network. 
 
-- [x] Classic NLB Version 1 Load Balancer
-- [x] Classic NLB Version 2 Load Balancer
-- [x] Classic Ingress ALB using TLS
-- [x] VPC NLB Load Balancer
-- [ ] VPC ALB Load Balancer 
+- [x] Classic NLB Version 1 Load Balancer (public)
+- [x] Classic NLB Version 2 Load Balancer (public)
+- [ ] Classic NLB Load Balancer (private)
+- [x] Classic Ingress using TLS and IBM Cloud provided subdomain (public)
+- [x] VPC Network Load Balancer (public)
+- [ ] VPC Application Load Balancer (private)
+- [ ] VPC Ingress using TLS and custom domain (public)
 
 ## Choosing an App Exposure Option
 
@@ -22,12 +24,14 @@ Depending on your use case, you may want to use one of the following app exposur
 | Custom routing rules | No | No | No | Yes | 
 | Multiple apps per service | No | No | No | Yes |
 
-## Expose Classic IKS Application
+## Deploy the example application
 
-Deploy a simple echo server application to the cluster:
+Deploy a simple echo server application to the cluster
 
 ```shell
-kubectl apply -f classic/classic-deployment.yaml
+git clone https://github.com/greyhoundforty/iks-app-exposure-examples.git
+cd iks-app-exposure-examples
+kubectl apply -f echo-server-deploy.yaml
 ```
 
 ### Expose the application via NLB version 1 (non-DSR)
