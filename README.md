@@ -5,7 +5,7 @@ The following examples deploy an [echo-server][echo-server] to an IBM Kubernetes
 - [x] Classic NLB Version 1 Load Balancer
 - [x] Classic NLB Version 2 Load Balancer
 - [x] Classic Ingress ALB using TLS
-- [ ] VPC NLB Load Balancer
+- [x] VPC NLB Load Balancer
 - [ ] VPC ALB Load Balancer 
 
 ## Expose Classic IKS Application
@@ -13,7 +13,7 @@ The following examples deploy an [echo-server][echo-server] to an IBM Kubernetes
 Deploy a simple echo server application to the cluster:
 
 ```shell
-kubectl apply -f classic/echo-server-deployment.yaml
+kubectl apply -f classic/classic-deployment.yaml
 ```
 
 ### Expose the application via NLB version 1 (non-DSR)
