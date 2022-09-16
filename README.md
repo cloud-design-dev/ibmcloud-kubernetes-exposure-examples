@@ -8,6 +8,20 @@ The following examples deploy an [echo-server][echo-server] to an IBM Kubernetes
 - [x] VPC NLB Load Balancer
 - [ ] VPC ALB Load Balancer 
 
+## Choosing an App Exposure Option
+
+Depending on your use case, you may want to use one of the following app exposure options:
+
+| Characteristics | NodePort | Classic NLB | VPC Load Balancer | Ingress |
+|---|---|---|---|---|
+| Externally accessible | Yes | Yes | Yes  | Yes |
+| External hostname | No | Yes  | Yes | Yes |
+| Stable external IP | No | Yes | No | Yes |
+| HTTP(S) load balancing | No | Yes | Yes | Yes |
+| TLS Termination | No | No | No | Yes |
+| Custom routing rules | No | No | No | Yes | 
+| Multiple apps per service | No | No | No | Yes |
+
 ## Expose Classic IKS Application
 
 Deploy a simple echo server application to the cluster:
@@ -65,7 +79,7 @@ ibmcloud ks cluster get --cluster <cluster_name_or_ID> | grep Ingress
 
 **Example output**:
 
-```shell
+```sh
 ibmcloud ks cluster get --cluster $CLASSIC_CLUSTER | grep Ingress
 Ingress Subdomain:              jb-iks-lab-classic-xxxxxxxxx-0000.us-south.containers.appdomain.cloud
 Ingress Secret:                 jb-iks-lab-classic-xxxxxxxxx-0000
@@ -81,7 +95,7 @@ kubectl apply -f classic/classic-ingress.yaml
 
 Test connection to TLS subdomain
 
-```shell
+```sh
 curl --header 'X-ECHO-ENV-BODY: HOSTNAME' https://echo.jb-iks-lab-classic-xxxxxxxxx-0000.us-south.containers.appdomain.cloud
 
 "echoserver-84c789fbd8-4wvnp"
